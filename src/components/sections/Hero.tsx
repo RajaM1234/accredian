@@ -1,12 +1,18 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import { CheckCircle2 } from "lucide-react";
+import EnquiryModal from "./EnquiryModal";
 
 const features = ["Tailored Solutions", "Industry Insights", "Expert Guidance"];
 
 export default function Hero() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
-    <section id="home" className="scroll-mt-[130px]">
-      <div className="mx-auto max-w-[1260px] px-4">
+    <section id="home" className="scroll-mt-[110px]">
+      <div className="mx-auto max-w-[1200px]">
         <div
           className="rounded-[30px] bg-[#EEF5FF]"
           style={{
@@ -14,10 +20,10 @@ export default function Hero() {
               "0 0 35px rgba(0,0,0,0.07), 0 18px 60px rgba(0,0,0,0.09), 0 8px 24px rgba(0,0,0,0.05)",
           }}
         >
-          <div className="flex items-end justify-between px-16 pt-14">
+          <div className="flex min-h-[540px] items-center justify-between overflow-hidden pl-16">
             {/* LEFT */}
-            <div className="w-[52%] pb-14">
-              <h1 className="text-[64px] font-bold leading-[1.05] tracking-tight text-black">
+            <div className="w-[52%]">
+              <h1 className="text-[54px] font-bold leading-[1.05] tracking-tight text-black">
                 Next-Gen <span className="text-[#2563EB]">Expertise</span>
                 <br />
                 For Your <span className="text-[#2563EB]">Enterprise</span>
@@ -39,12 +45,13 @@ export default function Hero() {
                 ))}
               </div>
 
+              {/* UPDATED BUTTON */}
               <button
+                onClick={() => setIsModalOpen(true)}
                 className="
                   mt-10
                   rounded-lg
                   border-2
-                 
                   bg-[#2563EB]
                   px-9
                   py-3.5
@@ -63,7 +70,7 @@ export default function Hero() {
             </div>
 
             {/* RIGHT */}
-            <div className="w-[48%] items-end justify-end self-end ">
+            <div className="w-[50%] items-end self-end">
               <Image
                 src="/images/hero.png"
                 alt="Enterprise Learning"
@@ -75,7 +82,7 @@ export default function Hero() {
                   w-auto
                   object-contain
                   object-right
-                  translate-x-[40px]
+                  -translate-x-[8px]
                   drop-shadow-[0_22px_40px_rgba(0,0,0,0.18)]
                 "
               />
@@ -83,6 +90,9 @@ export default function Hero() {
           </div>
         </div>
       </div>
+
+      {/* ENQUIRY MODAL */}
+      <EnquiryModal open={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   );
 }
