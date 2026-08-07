@@ -5,13 +5,13 @@ const features = ["Tailored Solutions", "Industry Insights", "Expert Guidance"];
 
 export default function Hero() {
   return (
-    <section className="mt-10">
+    <section id="home" className="scroll-mt-[130px]">
       <div className="mx-auto max-w-[1260px] px-4">
         <div
           className="rounded-[30px] bg-[#EEF5FF]"
           style={{
             boxShadow:
-              "0 0 35px rgba(0,0,0,0.05), 0 18px 60px rgba(0,0,0,0.09), 0 8px 24px rgba(0,0,0,0.05)",
+              "0 0 35px rgba(0,0,0,0.07), 0 18px 60px rgba(0,0,0,0.09), 0 8px 24px rgba(0,0,0,0.05)",
           }}
         >
           <div className="flex items-end justify-between px-16 pt-14">
@@ -44,12 +44,12 @@ export default function Hero() {
                   mt-10
                   rounded-lg
                   border-2
-                  border-black
+                 
                   bg-[#2563EB]
                   px-9
                   py-3.5
-                  text-[18px]
-                  font-extrabold
+                  text-[17px]
+                  font-semibold
                   text-white
                   transition-all
                   duration-300
