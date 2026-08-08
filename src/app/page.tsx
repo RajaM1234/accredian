@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+
 import Navbar from "@/components/layout/Navbar";
 import AccredianEdge from "@/components/sections/AccredianEdge";
 import DomainExpertise from "@/components/sections/DomainExpertise";
@@ -7,51 +11,80 @@ import Stats from "@/components/sections/Stats";
 import TailoredCourseSegmentation from "@/components/sections/TailoredCourseSegmentation";
 import WhoShouldJoin from "@/components/sections/WhoShouldJoin";
 import Cat from "@/components/sections/Cat";
-
-const placeholderSections = [
-  "clients",
-  "accredian-edge",
-  "cat",
-  "how-it-works",
-  "faqs",
-  "testimonials",
-];
+import HowItWorks from "@/components/sections/HowItWorks";
+import FAQs from "@/components/sections/FAQs";
+import Testimonials from "@/components/sections/Testimonials";
+import ContactUs from "@/components/sections/ContactUs";
+import EnquiryModal from "@/components/sections/EnquiryModal";
 
 export default function Home() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openEnquiry = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeEnquiry = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <>
       <Navbar />
+
       <main>
         <br />
         <br />
-        <Hero />
+        <section id="home" className="scroll-mt-[120px]">
+          <Hero />
+        </section>
         <br />
         <br />
-        <br />
-        <Stats />
-        <br />
-        <Partnerships />
-        <AccredianEdge />
-        <DomainExpertise />
-        <TailoredCourseSegmentation />
-        <WhoShouldJoin />
-        <Cat />
+        <section id="stats" className="scroll-mt-[120px]">
+          <Stats />
+        </section>
 
-        {placeholderSections.map((id) => (
-          <section
-            key={id}
-            id={id}
-            className="scroll-mt-[120px]"
-            style={{
-              minHeight: "260px",
-              background: "#fff",
-              borderTop: "1px solid #eef2ff",
-            }}
-          />
-        ))}
+        <section id="clients" className="scroll-mt-[120px]">
+          <Partnerships />
+        </section>
 
-        <br />
+        <section className="scroll-mt-[120px]">
+          <DomainExpertise />
+        </section>
+
+        <section>
+          <TailoredCourseSegmentation />
+        </section>
+
+        <section>
+          <WhoShouldJoin />
+        </section>
+
+        <section id="accredian-edge" className="scroll-mt-[120px]">
+          <AccredianEdge />
+        </section>
+
+        <section id="cat" className="scroll-mt-[120px]">
+          <Cat />
+        </section>
+
+        <section id="how-it-works" className="scroll-mt-[120px]">
+          <HowItWorks />
+        </section>
+
+        <section id="faqs" className="scroll-mt-[120px]">
+          <FAQs />
+        </section>
+
+        <section id="testimonials" className="scroll-mt-[120px]">
+          <Testimonials />
+        </section>
+
+        <ContactUs onEnquire={openEnquiry} />
+        <br/>
       </main>
+
+      <EnquiryModal open={isModalOpen} onClose={closeEnquiry} />
     </>
   );
 }

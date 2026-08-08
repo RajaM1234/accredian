@@ -48,22 +48,7 @@ export default function Hero() {
               {/* UPDATED BUTTON */}
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="
-                  mt-10
-                  rounded-lg
-                  border-2
-                  bg-[#2563EB]
-                  px-9
-                  py-3.5
-                  text-[17px]
-                  font-semibold
-                  text-white
-                  transition-all
-                  duration-300
-                  hover:bg-blue-700
-                  hover:-translate-y-1
-                  hover:shadow-xl
-                "
+                className="mt-10 rounded-lg border-2 bg-[#2563EB] px-9 py-3.5 text-[17px] font-semibold text-white transition-all duration-300 hover:bg-blue-700 hover:-translate-y-1 hover:shadow-xl"
               >
                 Enquire Now
               </button>
@@ -77,14 +62,7 @@ export default function Hero() {
                 width={620}
                 height={620}
                 priority
-                className="
-                  h-full
-                  w-auto
-                  object-contain
-                  object-right
-                  -translate-x-[8px]
-                  drop-shadow-[0_22px_40px_rgba(0,0,0,0.18)]
-                "
+                className="h-full w-auto object-contain object-right -translate-x-[8px] drop-shadow-[0_22px_40px_rgba(0,0,0,0.18)]"
               />
             </div>
           </div>

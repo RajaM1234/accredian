@@ -25,11 +25,11 @@ export default function Cat() {
       </div>
 
       {/* ORIGINAL CAT IMAGE */}
-      <div className="mx-auto mt-10 w-full max-w-[1000px]">
+      <div className="mx-auto mt-10 w-full max-w-[960px]">
         <Image
           src="/images/cat.svg"
           alt="CAT Framework - Concept, Application and Tools"
-          width={1500}
+          width={900}
           height={650}
           priority
           unoptimized
