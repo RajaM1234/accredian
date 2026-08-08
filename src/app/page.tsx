@@ -1,4 +1,6 @@
 import Navbar from "@/components/layout/Navbar";
+import AccredianEdge from "@/components/sections/AccredianEdge";
+import DomainExpertise from "@/components/sections/DomainExpertise";
 import Hero from "@/components/sections/Hero";
 import Partnerships from "@/components/sections/Partnerships";
 import Stats from "@/components/sections/Stats";
@@ -26,6 +28,8 @@ export default function Home() {
         <Stats />
         <br />
         <Partnerships />
+        <AccredianEdge />
+        <DomainExpertise />
 
         {placeholderSections.map((id) => (
           <section
