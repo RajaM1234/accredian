@@ -8,7 +8,7 @@ interface ContactUsProps {
 
 export default function ContactUs({ onEnquire }: ContactUsProps) {
   return (
-    <section className="mx-auto mt-20 max-w-[1380px] px-6">
+    <section className="mx-auto mt-16 max-w-[1300px] px-6">
       <div className="relative h-[245px] overflow-hidden rounded-[14px] bg-[#2878E5]">
         {/* SEMICIRCULAR BACKGROUND */}
         <div className="pointer-events-none absolute -bottom-[500px] right-[40px] h-[750px] w-[750px] rounded-full border-[65px] border-white/10" />

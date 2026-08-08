@@ -16,6 +16,7 @@ import FAQs from "@/components/sections/FAQs";
 import Testimonials from "@/components/sections/Testimonials";
 import ContactUs from "@/components/sections/ContactUs";
 import EnquiryModal from "@/components/sections/EnquiryModal";
+import Footer from "@/components/layout/Footer";
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -81,7 +82,8 @@ export default function Home() {
         </section>
 
         <ContactUs onEnquire={openEnquiry} />
-        <br/>
+        <br />
+        <Footer onEnquire={() => setIsModalOpen(true)} />
       </main>
 
       <EnquiryModal open={isModalOpen} onClose={closeEnquiry} />
