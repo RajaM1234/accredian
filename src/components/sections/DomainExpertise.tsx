@@ -57,7 +57,7 @@ export default function DomainExpertise() {
       </div>
 
       {/* Cards */}
-      <div className="mx-auto grid max-w-[1040px] grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mx-auto grid max-w-[1000px] grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
         {domains.map((domain, index) => {
           const Icon = domain.icon;
 

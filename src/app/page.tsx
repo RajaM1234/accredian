@@ -4,6 +4,9 @@ import DomainExpertise from "@/components/sections/DomainExpertise";
 import Hero from "@/components/sections/Hero";
 import Partnerships from "@/components/sections/Partnerships";
 import Stats from "@/components/sections/Stats";
+import TailoredCourseSegmentation from "@/components/sections/TailoredCourseSegmentation";
+import WhoShouldJoin from "@/components/sections/WhoShouldJoin";
+import Cat from "@/components/sections/Cat";
 
 const placeholderSections = [
   "clients",
@@ -30,6 +33,9 @@ export default function Home() {
         <Partnerships />
         <AccredianEdge />
         <DomainExpertise />
+        <TailoredCourseSegmentation />
+        <WhoShouldJoin />
+        <Cat />
 
         {placeholderSections.map((id) => (
           <section
