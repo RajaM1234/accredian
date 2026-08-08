@@ -69,25 +69,28 @@ export default function FAQs() {
 
   return (
     <>
-      <section id="faqs" className="bg-white px-6 py-16 md:px-10 md:py-16">
+      <section
+        id="faqs"
+        className="scroll-mt-[90px] px-5 py-12 md:px-8 md:py-16 lg:px-10"
+      >
         <div className="mx-auto max-w-[1200px]">
           {/* HEADING */}
-          <h2 className="text-[30px] font-semibold leading-tight text-[#111827] md:text-[36px]">
-            Frequently Asked <span className="text-[#2583D5]">Questions</span>
+          <h2 className="text-[28px] font-semibold leading-tight text-[#111827] md:text-[32px] lg:text-[36px]">
+            Frequently Asked <span className="text-[#2878E5]">Questions</span>
           </h2>
 
-          {/* FAQ CONTENT */}
-          <div className="mt-16 grid grid-cols-1 gap-12 lg:grid-cols-[270px_1fr]">
-            {/* LEFT CATEGORIES */}
-            <div className="flex flex-col gap-7">
+          {/* CATEGORY TABS */}
+          {/* Horizontal scroll on mobile + tablet + desktop */}
+          <div className="mt-10 w-full overflow-x-auto pb-3">
+            <div className="flex min-w-max gap-4">
               {(Object.keys(faqData) as Array<keyof typeof faqData>).map(
                 (category) => (
                   <button
                     key={category}
                     onClick={() => handleCategoryChange(category)}
-                    className={`h-[68px] w-full rounded-[6px] border-2 bg-white text-[18px] font-semibold transition-all duration-300 ${
+                    className={`h-[60px] w-[230px] shrink-0 rounded-[6px] border-2 bg-white px-4 text-[16px] font-semibold transition-all duration-300 md:w-[260px] md:text-[17px] ${
                       activeCategory === category
-                        ? "border-[#E5E7EB] text-[#2878E5] shadow-[0_12px_25px_rgba(0,0,0,0.10)]"
+                        ? "border-[#E5E7EB] text-[#2878E5] shadow-[0_10px_20px_rgba(0,0,0,0.10)]"
                         : "border-[#D1D5DB] text-[#6B7280] hover:border-[#2878E5] hover:text-[#2878E5]"
                     }`}
                   >
@@ -96,57 +99,60 @@ export default function FAQs() {
                 ),
               )}
             </div>
+          </div>
 
-            {/* RIGHT QUESTIONS */}
-            <div className="min-w-0">
-              <div className="flex flex-col">
-                {faqs.map((faq, index) => {
-                  const isOpen = openIndex === index;
+          {/* FAQ CONTENT */}
+          <div className="mx-auto mt-8 max-w-[1050px]">
+            <div className="flex flex-col">
+              {faqs.map((faq, index) => {
+                const isOpen = openIndex === index;
 
-                  return (
-                    <div key={faq.question} className="border-b-0">
-                      <button
-                        onClick={() => setOpenIndex(isOpen ? null : index)}
-                        className="flex w-full items-center justify-between gap-6 py-3 text-left"
+                return (
+                  <div
+                    key={faq.question}
+                    className="border-b border-transparent"
+                  >
+                    <button
+                      onClick={() => setOpenIndex(isOpen ? null : index)}
+                      className="flex w-full items-center justify-between gap-5 py-5 text-left"
+                    >
+                      <span
+                        className={`text-[16px] font-semibold leading-[1.45] md:text-[17px] ${
+                          isOpen ? "text-[#2878E5]" : "text-[#111827]"
+                        }`}
                       >
-                        <span
-                          className={`text-[17px] font-semibold leading-relaxed transition-colors ${
-                            isOpen ? "text-[#2878E5]" : "text-[#111827]"
-                          }`}
-                        >
-                          {faq.question}
-                        </span>
+                        {faq.question}
+                      </span>
 
-                        <ChevronDown
-                          size={22}
-                          strokeWidth={1.8}
-                          className={`shrink-0 text-gray-500 transition-transform duration-300 ${
-                            isOpen ? "rotate-180" : ""
-                          }`}
-                        />
-                      </button>
+                      <ChevronDown
+                        size={21}
+                        strokeWidth={1.8}
+                        className={`shrink-0 text-gray-500 transition-transform duration-300 ${
+                          isOpen ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
 
-                      {isOpen && (
-                        <div className="pb-6 pr-8">
-                          <p className="text-[17px] leading-[1.55] text-[#111827]">
-                            {faq.answer}
-                          </p>
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
+                    {isOpen && (
+                      <div className="pb-5 pr-6 md:pr-10">
+                        <p className="text-[15px] leading-[1.55] text-[#111827] md:text-[16px]">
+                          {faq.answer}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
 
-              {/* ENQUIRE BUTTON */}
-              <div className="mt-45 flex justify-center -translate-x-34">
-                <button
-                  onClick={() => setIsModalOpen(true)}
-                  className="rounded-lg bg-[#2878E5] px-7 py-3.5 text-[17px] font-semibold text-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:bg-blue-700 hover:shadow-xl"
-                >
-                  Enquire Now
-                </button>
-              </div>
+            {/* ENQUIRE BUTTON */}
+            <div className="mt-10 flex justify-center md:mt-12">
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="rounded-lg bg-[#2878E5] px-7 py-3.5 text-[16px] font-semibold text-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:bg-blue-700 hover:shadow-xl"
+              >
+                Enquire Now
+              </button>
             </div>
           </div>
         </div>

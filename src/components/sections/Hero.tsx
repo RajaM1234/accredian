@@ -15,7 +15,7 @@ export default function Hero() {
       <div className="hidden lg:block">
         <div className="mx-auto max-w-[1200px]">
           <div
-            className="rounded-[30px] bg-[#EEF5FF]"
+            className="rounded-[30px] bg-[#EEF5FF] lg:block"
             style={{
               boxShadow:
                 "0 0 35px rgba(0,0,0,0.07), 0 18px 60px rgba(0,0,0,0.09), 0 8px 24px rgba(0,0,0,0.05)",

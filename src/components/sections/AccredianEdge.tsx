@@ -2,13 +2,10 @@ import Image from "next/image";
 
 export default function AccredianEdge() {
   return (
-    <section
-      id="accredianEdge"
-      className="w-full scroll-mt-[90px] bg-white px-6 py-12 md:px-10 lg:px-16"
-    >
+    <section id="accredianEdge" className="w-full overflow-hidden">
       {/* Heading */}
-      <div className="mb-12 text-center">
-        <h2 className="text-[40px] font-bold leading-tight text-[#111827] md:text-[36px]">
+      <div className="text-center">
+        <h2 className="text-[36px] font-bold leading-tight md:text-[32px] sm:text-[28px]">
           The <span className="text-[#2563EB]">Accredian Edge</span>
         </h2>
 
@@ -18,8 +15,8 @@ export default function AccredianEdge() {
         </p>
       </div>
 
-      {/* Original Accredian Edge SVG */}
-      <div className="mx-auto w-full max-w-[1260px]">
+      {/* TABLET + DESKTOP — EXISTING SVG */}
+      <div className="mx-auto hidden w-full max-w-[1260px] md:block">
         <Image
           src="/images/accredian-edge-usp-v3.svg"
           alt="Accredian Edge - Key aspects of strategic training"
@@ -28,6 +25,18 @@ export default function AccredianEdge() {
           priority
           unoptimized
           className="h-auto w-full"
+        />
+      </div>
+
+      {/* MOBILE — MOBILE VERSION */}
+      <div className="mx-auto block w-full max-w-[500px] md:hidden">
+        <Image
+          src="/images/mobile_v.png"
+          alt="Accredian Edge - Key aspects of strategic training"
+          width={600}
+          height={700}
+          priority
+          className="h-auto w-full object-contain"
         />
       </div>
     </section>

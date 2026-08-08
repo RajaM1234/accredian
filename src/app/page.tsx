@@ -49,6 +49,9 @@ export default function Home() {
           <Partnerships />
         </section>
 
+        <section id="accredian-edge" className="scroll-mt-[120px]">
+          <AccredianEdge />
+        </section>
         <section className="scroll-mt-[120px]">
           <DomainExpertise />
         </section>
@@ -59,10 +62,6 @@ export default function Home() {
 
         <section>
           <WhoShouldJoin />
-        </section>
-
-        <section id="accredian-edge" className="scroll-mt-[120px]">
-          <AccredianEdge />
         </section>
 
         <section id="cat" className="scroll-mt-[120px]">

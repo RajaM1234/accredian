@@ -2,12 +2,13 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { Menu, X } from "lucide-react";
 
 const navItems = [
   { label: "Home", id: "home" },
   { label: "Stats", id: "stats" },
   { label: "Clients", id: "clients" },
-  { label: "Accredian Edge", id: "accredianEdge" },
+  { label: "Accredian Edge", id: "accredian-edge" },
   { label: "CAT", id: "cat" },
   { label: "How It Works", id: "how-it-works" },
   { label: "FAQs", id: "faqs" },
@@ -16,6 +17,7 @@ const navItems = [
 
 export default function Navbar() {
   const [active, setActive] = useState("home");
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const updateActiveSection = () => {
@@ -42,27 +44,26 @@ export default function Navbar() {
 
     updateActiveSection();
 
-    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("scroll", updateActiveSection, {
+      passive: true,
+    });
 
     window.addEventListener("resize", updateActiveSection);
 
     return () => {
       window.removeEventListener("scroll", updateActiveSection);
-
       window.removeEventListener("resize", updateActiveSection);
     };
   }, []);
 
-  const handleNavClick = (
-    event: React.MouseEvent<HTMLAnchorElement>,
-    id: string,
-  ) => {
+  const handleNavClick = (event: React.MouseEvent, id: string) => {
     event.preventDefault();
 
     const section = document.getElementById(id);
 
     if (!section) {
       console.warn(`Section with id "${id}" not found.`);
+      setMenuOpen(false);
       return;
     }
 
@@ -79,6 +80,7 @@ export default function Navbar() {
     });
 
     setActive(id);
+    setMenuOpen(false);
   };
 
   return (
@@ -88,9 +90,9 @@ export default function Navbar() {
         boxShadow: "0 3px 12px rgba(0,0,0,.08)",
       }}
     >
-      <div className="mx-auto flex h-[88px] items-center justify-between px-8 lg:px-12">
-        {/* Logo */}
-
+      {/* MAIN NAVBAR */}
+      <div className="flex h-[80px] items-center justify-between px-5 sm:px-7 lg:px-10">
+        {/* LOGO */}
         <a
           href="#home"
           onClick={(event) => handleNavClick(event, "home")}
@@ -106,8 +108,7 @@ export default function Navbar() {
           />
         </a>
 
-        {/* Desktop Navigation */}
-
+        {/* DESKTOP NAVIGATION */}
         <nav className="hidden items-center gap-9 lg:flex">
           {navItems.map((item) => (
             <a
@@ -128,7 +129,43 @@ export default function Navbar() {
             </a>
           ))}
         </nav>
+
+        {/* TABLET + MOBILE MENU BUTTON */}
+        <button
+          type="button"
+          onClick={() => setMenuOpen((value) => !value)}
+          className="flex h-10 w-10 items-center justify-center rounded-lg text-[#111827] transition-colors hover:bg-[#EEF5FF] lg:hidden"
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+        >
+          {menuOpen ? (
+            <X size={28} strokeWidth={2} />
+          ) : (
+            <Menu size={28} strokeWidth={2} />
+          )}
+        </button>
       </div>
+
+      {/* TABLET + MOBILE DROPDOWN */}
+      {menuOpen && (
+        <div className="absolute right-5 top-[70px] z-50 w-[220px] rounded-[12px] bg-white p-4 shadow-xl lg:hidden">
+          <nav className="flex flex-col">
+            {navItems.map((item) => (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                onClick={(event) => handleNavClick(event, item.id)}
+                className={`rounded-md px-3 py-3 text-[16px] transition-colors ${
+                  active === item.id
+                    ? "font-bold text-[#2563EB]"
+                    : "font-medium text-[#111827] hover:text-[#2563EB]"
+                }`}
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+        </div>
+      )}
     </header>
   );
 }

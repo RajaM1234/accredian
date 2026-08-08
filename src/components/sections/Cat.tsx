@@ -11,16 +11,15 @@ export default function Cat() {
       }}
     >
       {/* HEADING */}
-
-      <h2 className="text-center text-[36px] font-semibold leading-tight text-[#111827]">
+      <h2 className="text-center text-[26px] font-semibold leading-tight text-[#111827] md:text-[30px] lg:text-[36px]">
         The <span className="text-[#2583D5]">CAT Framework</span>
       </h2>
 
+      {/* SUBHEADING */}
       <div className="text-center">
-        <p className="mt-3 text-[18px] text-[#1F2937] md:text-[18px]">
+        <p className="mt-3 text-[15px] text-[#1F2937] md:text-[16px] lg:text-[18px]">
           Our Proven Approach to{" "}
           <span className="text-[#2563EB]">Learning Excellence</span>
-          <br />
         </p>
       </div>
 

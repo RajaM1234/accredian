@@ -8,12 +8,10 @@ interface FooterProps {
 
 export default function Footer({ onEnquire }: FooterProps) {
   return (
-    <footer className="mt-20 px-6">
-      <div className="mx-auto max-w-[1400px]">
-
+    <footer className="bg-white text-[#111827] max-[500px]:bg-[#1F1F1F] max-[500px]:text-white">
+      <div className="mx-auto w-full max-w-[1200px] px-6 py-10 md:px-10 lg:px-12">
         {/* TOP FOOTER */}
-        <div className="flex items-start justify-between pb-10">
-
+        <div className="flex flex-col items-start gap-8 pb-10 xl:flex-row xl:items-start xl:justify-between">
           {/* LEFT */}
           <div>
             <Image
@@ -21,12 +19,11 @@ export default function Footer({ onEnquire }: FooterProps) {
               alt="Accredian"
               width={160}
               height={60}
-              className="h-auto w-[160px] object-contain"
+              className="h-auto w-[160px] object-contain max-[500px]:brightness-0 max-[500px]:invert"
             />
 
             {/* SOCIAL LINKS */}
-            <div className="mt-8 flex items-center gap-6 text-[#374151]">
-
+            <div className="mt-8 flex items-center gap-6 text-[#374151] max-[500px]:text-white">
               {/* FACEBOOK */}
               <a
                 href="https://facebook.com/accredianlearn"
@@ -63,7 +60,7 @@ export default function Footer({ onEnquire }: FooterProps) {
                 </svg>
               </a>
 
-              {/* TWITTER / X */}
+              {/* X / TWITTER */}
               <a
                 href="https://twitter.com/accredianedu"
                 target="_blank"
@@ -97,13 +94,7 @@ export default function Footer({ onEnquire }: FooterProps) {
                   stroke="currentColor"
                   strokeWidth="2"
                 >
-                  <rect
-                    x="3"
-                    y="3"
-                    width="18"
-                    height="18"
-                    rx="5"
-                  />
+                  <rect x="3" y="3" width="18" height="18" rx="5" />
                   <circle cx="12" cy="12" r="4" />
                   <circle
                     cx="17.5"
@@ -132,12 +123,11 @@ export default function Footer({ onEnquire }: FooterProps) {
                   <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.8zM9.6 15.9V8.1l6.4 3.9-6.4 3.9z" />
                 </svg>
               </a>
-
             </div>
           </div>
 
           {/* ENQUIRE NOW */}
-          <div className="flex flex-col items-end">
+          <div className="flex flex-col items-start xl:items-end">
             <button
               type="button"
               onClick={onEnquire}
@@ -146,26 +136,25 @@ export default function Footer({ onEnquire }: FooterProps) {
               Enquire Now
             </button>
 
-            <p className="mt-3 text-[15px] text-[#111827]">
+            <p className="mt-3 text-[15px] text-[#111827] max-[500px]:text-white">
               Speak with our Advisor
             </p>
           </div>
-
         </div>
 
         {/* DIVIDER */}
-        <div className="border-t border-[#6B7280]" />
+        <div className="border-t border-[#6B7280] max-[500px]:border-[#374151]" />
 
         {/* INFORMATION */}
-        <div className="grid grid-cols-1 gap-10 py-8 md:grid-cols-2">
-
+        {/* Single column until desktop */}
+        <div className="grid grid-cols-1 gap-10 py-8 xl:grid-cols-2">
           {/* ACCREDIAN */}
           <div>
-            <h3 className="text-[20px] font-bold text-[#111827]">
+            <h3 className="text-[20px] font-bold text-[#111827] max-[500px]:text-white">
               Accredian
             </h3>
 
-            <div className="mt-4 space-y-3 text-[17px] text-[#1F2937]">
+            <div className="mt-4 space-y-3 text-[17px] text-[#1F2937] max-[500px]:text-white">
               <p>About</p>
               <p>Blog</p>
               <p>Why Accredian</p>
@@ -174,16 +163,14 @@ export default function Footer({ onEnquire }: FooterProps) {
 
           {/* CONTACT US */}
           <div>
-            <h3 className="text-[20px] font-bold text-[#111827]">
+            <h3 className="text-[20px] font-bold text-[#111827] max-[500px]:text-white">
               Contact Us
             </h3>
 
-            <div className="mt-4 space-y-3 text-[17px] text-[#1F2937]">
+            <div className="mt-4 space-y-3 text-[17px] text-[#1F2937] max-[500px]:text-white">
               <p>
                 Email us:{" "}
-                <span className="text-[#2878E5]">
-                  enterprise@accredian.com
-                </span>
+                <span className="text-[#2878E5]">enterprise@accredian.com</span>
               </p>
 
               <p className="max-w-[600px] leading-[1.5]">
@@ -192,17 +179,16 @@ export default function Footer({ onEnquire }: FooterProps) {
               </p>
             </div>
           </div>
-
         </div>
 
         {/* BOTTOM DIVIDER */}
-        <div className="border-t border-[#6B7280]" />
+        <div className="border-t border-[#6B7280] max-[500px]:border-[#374151]" />
 
         {/* COPYRIGHT */}
-        <div className="flex justify-center py-5 text-center text-[16px] text-[#111827]">
-          © 2026 Accredian A Brand of FullStack Education Pvt Ltd. All Rights Reserved
+        <div className="flex justify-center py-5 text-center text-[16px] text-[#111827] max-[500px]:text-white">
+          © 2026 Accredian A Brand of FullStack Education Pvt Ltd. All Rights
+          Reserved
         </div>
-
       </div>
     </footer>
   );
